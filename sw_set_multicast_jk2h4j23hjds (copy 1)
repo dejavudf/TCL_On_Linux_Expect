@@ -1,0 +1,60 @@
+#!/usr/bin/expect
+#tcl scripts - ajuste de banner switches huawei, hp ou 3com
+### 100% working ###
+
+#declaracao de variaveis
+set timeout 3
+set ip [lindex $argv 0]
+#set name [lindex $argv 1]
+#set port [lindex $argv 2]
+#set user [lindex $argv 3]
+#set password [lindex $argv 4]
+set password nova2018
+set user ihbdf
+
+#inicio do script
+spawn telnet $ip
+sleep 2;
+expect "Username:";
+send "$user\r";
+expect "Password:";
+send "$password\r";
+expect ">";
+send "system-view\r";
+expect "]";
+send "undo vlan 2\r";
+expect "]";
+send "undo vlan 4\r";
+expect "]";
+send "undo vlan 3\r";
+expect "]";
+send "undo vlan 68\r";
+expect "]";
+send "igmp-snooping\r";
+expect "]";
+send "mld-snooping\r";
+expect "]";
+send "vlan 66\r";
+expect "]";
+send "igmp-snooping enable\r";
+expect "]";
+send "mld-snooping enable\r";
+expect "]";
+send "vlan 248\r";
+expect "]";
+send "igmp-snooping enable\r";
+expect "]";
+send "mld-snooping enable\r";
+expect "]";
+send "vlan 6\r";
+expect "]";
+send "igmp-snooping enable\r";
+expect "]";
+send "mld-snooping enable\r";
+expect "]";
+send "display igmp-snooping group\r";
+expect "]";
+send "quit\r";
+expect ">";
+send "quit\r";
+

@@ -1,0 +1,29 @@
+#!/usr/bin/expect
+#tcl scripts para rede - pega dados telefone
+### 100% working ###
+
+#declaracao de variaveis
+set timeout 3
+set ip [lindex $argv 0]
+#set name [lindex $argv 1]
+#set port [lindex $argv 2]
+#set user [lindex $argv 3]
+#set password [lindex $argv 4]
+set password admin
+#set user admin
+
+#inicio do script
+spawn ssh admin@$ip
+sleep 2;
+expect ">";
+send "yes\r";
+expect "password:";
+send "$password\r";
+expect "password:";
+send "$password\r";
+expect ">"
+send "status\r";
+expect ">";
+send "exit\r";
+#interact
+

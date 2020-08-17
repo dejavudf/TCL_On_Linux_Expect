@@ -1,0 +1,73 @@
+#!/usr/bin/expect
+#tcl scripts - ajuste tela switches huawei, hp ou 3com
+### 100% working ###
+
+#declaracao de variaveis
+set timeout 3
+set ip [lindex $argv 0]
+#set name [lindex $argv 1]
+#set port [lindex $argv 2]
+#set user [lindex $argv 3]
+#set password [lindex $argv 4]
+set password nova2018
+set user ihbdf
+set server 10.85.70.24
+set date 26122018
+
+#inicio do script
+spawn telnet $ip
+sleep 2;
+expect "Username:";
+send "$user\r";
+expect "Password:";
+send "$password\r";
+expect ">";
+send "system-view\r";
+expect "]";
+send "undo acl number 2555\r";
+expect "]";
+send "acl number 2555\r";
+expect "]";
+send "rule 0 permit source 172.16.100.0 0.0.0.255\r";
+expect "]";
+send "rule 1 permit source 172.16.3.0 0.0.0.255\r";
+expect "]";
+send "rule 2 permit source 10.84.10.0 0.0.0.255\r";
+expect "]";
+send "rule 3 permit source 10.85.248.0 0.0.1.255\r";
+expect "]";
+send "undo rule 4\r";
+expect "]";
+send "undo rule 5\r";
+expect "]";
+send "undo rule 6\r";
+expect "]";
+send "undo rule 7\r";
+expect "]";
+send "undo rule 8\r";
+expect "]";
+send "undo rule 9\r";
+expect "]";
+send "quit\r";
+expect "]";
+send "snmp-agent community read sec_saude_ro  acl 2555\r";
+expect "]";
+send "snmp-agent community write sec_saude_rw  acl 2555\r";
+expect "]";
+send "user-interface vty 0 15\r";
+expect "]";
+send "acl 2555 inbound\r";
+expect "]";
+send "screen-length 0\r";
+expect "]";
+send "user-interface vty 0 4\r";
+expect "]";
+send "acl 2555 inbound\r";
+expect "]";
+send "screen-length 0\r";
+expect "]";
+send "quit\r";
+expect ">";
+send "quit\r";
+#interact
+
