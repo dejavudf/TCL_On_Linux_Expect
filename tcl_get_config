@@ -1,5 +1,4 @@
 #!/usr/bin/expect
-#tcl scripts - ajuste de banner switches huawei, hp ou 3com
 ### 100% working ###
 
 #declaracao de variaveis
@@ -9,8 +8,8 @@ set ip [lindex $argv 0]
 #set port [lindex $argv 2]
 #set user [lindex $argv 3]
 #set password [lindex $argv 4]
-set password nova2018
-set user ihbdf
+set password xpto
+set user xpto
 
 #inicio do script
 spawn telnet $ip
