@@ -8,7 +8,7 @@ set ip [lindex $argv 0]
 #set port [lindex $argv 2]
 #set user [lindex $argv 3]
 #set password [lindex $argv 4]
-set password nova2018
+set password xpto
 set user xpto
 set server ip_hostname
 set date 03012018
