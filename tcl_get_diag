@@ -1,5 +1,4 @@
 #!/usr/bin/expect
-#tcl scripts - backup switches huawei, hp ou 3com
 ### 100% working ###
 
 #declaracao de variaveis
@@ -9,9 +8,9 @@ set ip [lindex $argv 0]
 #set port [lindex $argv 2]
 #set user [lindex $argv 3]
 #set password [lindex $argv 4]
-set password nova2018
-set user ihbdf
-set server 10.85.70.237
+set password xpto
+set user xpto
+set server ip_hostname
 set date 03012018
 
 #inicio do script
