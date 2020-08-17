@@ -1,5 +1,4 @@
 #!/usr/bin/expect
-#tcl scripts - ajuste de banner switches huawei, hp ou 3com
 ### 100% working ###
 
 #declaracao de variaveis
